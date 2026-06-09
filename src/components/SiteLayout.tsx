@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import logo from "../lib/images/logo.png";
 import { useEffect, useState, type ReactNode } from "react";
 import { Menu, X, Phone, Mail, MapPin, ArrowRight, Linkedin, Instagram, Facebook } from "lucide-react";
 
@@ -39,15 +40,13 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             : "bg-transparent"
         }`}
       >
-        <div className="container-px mx-auto max-w-7xl flex items-center justify-between h-18 py-4">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-lg text-gradient-gold border border-[oklch(0.82_0.13_85/0.4)] bg-[oklch(0.82_0.13_85/0.08)] group-hover:scale-105 transition-transform">
-              H
-            </div>
-            <div className="leading-tight">
-              <div className="font-display font-bold text-base">Hingol</div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Marketing</div>
-            </div>
+        <div className="container-px mx-auto max-w-7xl flex items-center justify-between py-3">
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={logo} 
+              alt="Hingol Marketing Logo" 
+              className="h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
@@ -128,12 +127,12 @@ function SiteFooter() {
       <div className="container-px mx-auto max-w-7xl py-16">
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-4">
-            <Link to="/" className="flex items-center gap-2 mb-5">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center font-display font-bold text-lg text-gradient-gold border border-[oklch(0.82_0.13_85/0.4)] bg-[oklch(0.82_0.13_85/0.08)]">H</div>
-              <div className="leading-tight">
-                <div className="font-display font-bold text-base">Hingol Marketing</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Dubai · UAE</div>
-              </div>
+            <Link to="/" className="flex items-center mb-5 group">
+              <img 
+                src={logo} 
+                alt="Hingol Marketing Logo" 
+                className="h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105" 
+              />
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6 max-w-sm">
               A premium digital marketing agency in Dubai helping brands across the UAE, GCC,
