@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { SiteLayout, PageHero, SectionHeading, CTASection } from "@/components/SiteLayout";
 
-export const Route = createFileRoute("/services")({
+export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Digital Marketing Services in Dubai | Hingol Marketing" },
