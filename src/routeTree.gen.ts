@@ -9,38 +9,287 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
+import { Route as ServicesSocialMediaMarketingRouteImport } from './routes/services.social-media-marketing'
+import { Route as ServicesSeoRouteImport } from './routes/services.seo'
+import { Route as ServicesPpcAdvertisingRouteImport } from './routes/services.ppc-advertising'
+import { Route as ServicesAppDevelopmentRouteImport } from './routes/services.app-development'
+import { Route as CaseStudiesZetronixRouteImport } from './routes/case-studies.zetronix'
+import { Route as CaseStudiesThePetShopRouteImport } from './routes/case-studies.the-pet-shop'
+import { Route as BlogTopSeoTrendsDubai2026RouteImport } from './routes/blog.top-seo-trends-dubai-2026'
+import { Route as BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRouteImport } from './routes/blog.dubai-business-needs-website-development-seo'
+import { Route as BlogAiPoweredSearchChangingSeoRouteImport } from './routes/blog.ai-powered-search-changing-seo'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesWebsiteDevelopmentRoute =
+  ServicesWebsiteDevelopmentRouteImport.update({
+    id: '/website-development',
+    path: '/website-development',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesSocialMediaMarketingRoute =
+  ServicesSocialMediaMarketingRouteImport.update({
+    id: '/social-media-marketing',
+    path: '/social-media-marketing',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesSeoRoute = ServicesSeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPpcAdvertisingRoute = ServicesPpcAdvertisingRouteImport.update({
+  id: '/ppc-advertising',
+  path: '/ppc-advertising',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesAppDevelopmentRoute = ServicesAppDevelopmentRouteImport.update({
+  id: '/app-development',
+  path: '/app-development',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const CaseStudiesZetronixRoute = CaseStudiesZetronixRouteImport.update({
+  id: '/zetronix',
+  path: '/zetronix',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const CaseStudiesThePetShopRoute = CaseStudiesThePetShopRouteImport.update({
+  id: '/the-pet-shop',
+  path: '/the-pet-shop',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const BlogTopSeoTrendsDubai2026Route =
+  BlogTopSeoTrendsDubai2026RouteImport.update({
+    id: '/top-seo-trends-dubai-2026',
+    path: '/top-seo-trends-dubai-2026',
+    getParentRoute: () => BlogRoute,
+  } as any)
+const BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute =
+  BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRouteImport.update({
+    id: '/dubai-business-needs-website-development-seo',
+    path: '/dubai-business-needs-website-development-seo',
+    getParentRoute: () => BlogRoute,
+  } as any)
+const BlogAiPoweredSearchChangingSeoRoute =
+  BlogAiPoweredSearchChangingSeoRouteImport.update({
+    id: '/ai-powered-search-changing-seo',
+    path: '/ai-powered-search-changing-seo',
+    getParentRoute: () => BlogRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
+  '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
+  '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
+  '/services/app-development': typeof ServicesAppDevelopmentRoute
+  '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
+  '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
+  '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
+  '/services/app-development': typeof ServicesAppDevelopmentRoute
+  '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blog': typeof BlogRouteWithChildren
+  '/case-studies': typeof CaseStudiesRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/services': typeof ServicesRouteWithChildren
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
+  '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
+  '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
+  '/services/app-development': typeof ServicesAppDevelopmentRoute
+  '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
+  '/services/seo': typeof ServicesSeoRoute
+  '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/sitemap.xml'
+    | '/blog/ai-powered-search-changing-seo'
+    | '/blog/dubai-business-needs-website-development-seo'
+    | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/the-pet-shop'
+    | '/case-studies/zetronix'
+    | '/services/app-development'
+    | '/services/ppc-advertising'
+    | '/services/seo'
+    | '/services/social-media-marketing'
+    | '/services/website-development'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/sitemap.xml'
+    | '/blog/ai-powered-search-changing-seo'
+    | '/blog/dubai-business-needs-website-development-seo'
+    | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/the-pet-shop'
+    | '/case-studies/zetronix'
+    | '/services/app-development'
+    | '/services/ppc-advertising'
+    | '/services/seo'
+    | '/services/social-media-marketing'
+    | '/services/website-development'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blog'
+    | '/case-studies'
+    | '/contact'
+    | '/services'
+    | '/sitemap.xml'
+    | '/blog/ai-powered-search-changing-seo'
+    | '/blog/dubai-business-needs-website-development-seo'
+    | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/the-pet-shop'
+    | '/case-studies/zetronix'
+    | '/services/app-development'
+    | '/services/ppc-advertising'
+    | '/services/seo'
+    | '/services/social-media-marketing'
+    | '/services/website-development'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogRoute: typeof BlogRouteWithChildren
+  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +297,147 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/website-development': {
+      id: '/services/website-development'
+      path: '/website-development'
+      fullPath: '/services/website-development'
+      preLoaderRoute: typeof ServicesWebsiteDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/social-media-marketing': {
+      id: '/services/social-media-marketing'
+      path: '/social-media-marketing'
+      fullPath: '/services/social-media-marketing'
+      preLoaderRoute: typeof ServicesSocialMediaMarketingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/seo': {
+      id: '/services/seo'
+      path: '/seo'
+      fullPath: '/services/seo'
+      preLoaderRoute: typeof ServicesSeoRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ppc-advertising': {
+      id: '/services/ppc-advertising'
+      path: '/ppc-advertising'
+      fullPath: '/services/ppc-advertising'
+      preLoaderRoute: typeof ServicesPpcAdvertisingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/app-development': {
+      id: '/services/app-development'
+      path: '/app-development'
+      fullPath: '/services/app-development'
+      preLoaderRoute: typeof ServicesAppDevelopmentRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/case-studies/zetronix': {
+      id: '/case-studies/zetronix'
+      path: '/zetronix'
+      fullPath: '/case-studies/zetronix'
+      preLoaderRoute: typeof CaseStudiesZetronixRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/the-pet-shop': {
+      id: '/case-studies/the-pet-shop'
+      path: '/the-pet-shop'
+      fullPath: '/case-studies/the-pet-shop'
+      preLoaderRoute: typeof CaseStudiesThePetShopRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/blog/top-seo-trends-dubai-2026': {
+      id: '/blog/top-seo-trends-dubai-2026'
+      path: '/top-seo-trends-dubai-2026'
+      fullPath: '/blog/top-seo-trends-dubai-2026'
+      preLoaderRoute: typeof BlogTopSeoTrendsDubai2026RouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/dubai-business-needs-website-development-seo': {
+      id: '/blog/dubai-business-needs-website-development-seo'
+      path: '/dubai-business-needs-website-development-seo'
+      fullPath: '/blog/dubai-business-needs-website-development-seo'
+      preLoaderRoute: typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/ai-powered-search-changing-seo': {
+      id: '/blog/ai-powered-search-changing-seo'
+      path: '/ai-powered-search-changing-seo'
+      fullPath: '/blog/ai-powered-search-changing-seo'
+      preLoaderRoute: typeof BlogAiPoweredSearchChangingSeoRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
+interface BlogRouteChildren {
+  BlogAiPoweredSearchChangingSeoRoute: typeof BlogAiPoweredSearchChangingSeoRoute
+  BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute: typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
+  BlogTopSeoTrendsDubai2026Route: typeof BlogTopSeoTrendsDubai2026Route
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogAiPoweredSearchChangingSeoRoute: BlogAiPoweredSearchChangingSeoRoute,
+  BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute:
+    BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute,
+  BlogTopSeoTrendsDubai2026Route: BlogTopSeoTrendsDubai2026Route,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
+interface CaseStudiesRouteChildren {
+  CaseStudiesThePetShopRoute: typeof CaseStudiesThePetShopRoute
+  CaseStudiesZetronixRoute: typeof CaseStudiesZetronixRoute
+}
+
+const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesThePetShopRoute: CaseStudiesThePetShopRoute,
+  CaseStudiesZetronixRoute: CaseStudiesZetronixRoute,
+}
+
+const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
+  CaseStudiesRouteChildren,
+)
+
+interface ServicesRouteChildren {
+  ServicesAppDevelopmentRoute: typeof ServicesAppDevelopmentRoute
+  ServicesPpcAdvertisingRoute: typeof ServicesPpcAdvertisingRoute
+  ServicesSeoRoute: typeof ServicesSeoRoute
+  ServicesSocialMediaMarketingRoute: typeof ServicesSocialMediaMarketingRoute
+  ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesAppDevelopmentRoute: ServicesAppDevelopmentRoute,
+  ServicesPpcAdvertisingRoute: ServicesPpcAdvertisingRoute,
+  ServicesSeoRoute: ServicesSeoRoute,
+  ServicesSocialMediaMarketingRoute: ServicesSocialMediaMarketingRoute,
+  ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogRoute: BlogRouteWithChildren,
+  CaseStudiesRoute: CaseStudiesRouteWithChildren,
+  ContactRoute: ContactRoute,
+  ServicesRoute: ServicesRouteWithChildren,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
