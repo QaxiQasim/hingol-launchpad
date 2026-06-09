@@ -77,14 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Hingol Marketing — Digital Marketing Agency in Dubai" },
+      { name: "description", content: "Hingol Marketing is a premium digital marketing agency in Dubai offering SEO, PPC, social media, web & app development across UAE, GCC and beyond." },
+      { name: "author", content: "Hingol Marketing" },
+      { name: "keywords", content: "Digital Marketing Agency Dubai, SEO Agency Dubai, Website Development Dubai, Social Media Marketing Dubai, Google Ads Dubai, PPC Agency Dubai, Mobile App Development Dubai" },
+      { property: "og:title", content: "Hingol Marketing — Digital Marketing Agency in Dubai" },
+      { property: "og:description", content: "Premium digital marketing agency in Dubai. SEO, PPC, social, web & app development for ambitious brands across UAE, GCC, Europe and beyond." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Hingol Marketing" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
