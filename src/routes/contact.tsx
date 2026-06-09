@@ -29,12 +29,18 @@ const schema = z.object({
 
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    setSubmitError(null);
+    const formElement = e.currentTarget;
+    const form = new FormData(formElement);
     const data = Object.fromEntries(form.entries());
+    
+    // Zod validation
     const parsed = schema.safeParse(data);
     if (!parsed.success) {
       const errs: Record<string, string> = {};
@@ -43,7 +49,28 @@ function ContactPage() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitting(true);
+
+    try {
+      const formData = new FormData(formElement);
+      formData.append("access_key", "9ed8cc19-8eb8-4e6a-abe3-1fe5a982d23e");
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const resData = await response.json();
+      if (resData.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(resData.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setSubmitError("Failed to send message. Please check your connection.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -71,6 +98,11 @@ function ContactPage() {
               </div>
             ) : (
               <form onSubmit={onSubmit} className="mt-8 grid sm:grid-cols-2 gap-4">
+                {/* Web3Forms settings */}
+                <input type="hidden" name="subject" value="New Contact Form Submission - Hingol Marketing" />
+                <input type="hidden" name="from_name" value="Hingol Marketing Site" />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
                 <Field name="name" label="Full Name" placeholder="Your name" error={errors.name} required />
                 <Field name="phone" label="Phone" placeholder="+971 ..." error={errors.phone} required />
                 <Field name="email" label="Email" placeholder="you@company.com" error={errors.email} required type="email" />
@@ -85,9 +117,16 @@ function ContactPage() {
                   />
                   {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
                 </div>
+                {submitError && (
+                  <div className="sm:col-span-2 p-4 rounded-xl border border-destructive/30 bg-destructive/10 text-destructive text-sm mt-2">
+                    {submitError}
+                  </div>
+                )}
                 <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3 mt-2">
                   <p className="text-xs text-muted-foreground">By submitting, you agree to be contacted by Hingol Marketing.</p>
-                  <button type="submit" className="btn-gold">Get a Free Quote <Send className="w-4 h-4" /></button>
+                  <button type="submit" disabled={submitting} className="btn-gold disabled:opacity-50 disabled:cursor-not-allowed">
+                    {submitting ? "Sending..." : "Get a Free Quote"} <Send className="w-4 h-4" />
+                  </button>
                 </div>
               </form>
             )}
