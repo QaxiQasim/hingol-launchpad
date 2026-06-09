@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero, SectionHeading, CTASection } from "@/components/SiteLayout";
 import { ArrowUpRight, MapPin, Clock, Layers } from "lucide-react";
 
-export const Route = createFileRoute("/case-studies")({
+export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
       { title: "SEO & Digital Marketing Case Studies | Hingol Marketing Dubai" },

@@ -10,12 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CaseStudiesRouteImport } from './routes/case-studies'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services.website-development'
 import { Route as ServicesSocialMediaMarketingRouteImport } from './routes/services.social-media-marketing'
 import { Route as ServicesSeoRouteImport } from './routes/services.seo'
@@ -32,24 +32,9 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CaseStudiesRoute = CaseStudiesRouteImport.update({
-  id: '/case-studies',
-  path: '/case-studies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -60,6 +45,21 @@ const AboutRoute = AboutRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesWebsiteDevelopmentRoute =
@@ -121,10 +121,7 @@ const BlogAiPoweredSearchChangingSeoRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
@@ -136,14 +133,14 @@ export interface FileRoutesByFullPath {
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/blog/': typeof BlogIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
@@ -155,15 +152,15 @@ export interface FileRoutesByTo {
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/blog': typeof BlogIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/blog': typeof BlogRouteWithChildren
-  '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
-  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
@@ -175,16 +172,16 @@ export interface FileRoutesById {
   '/services/seo': typeof ServicesSeoRoute
   '/services/social-media-marketing': typeof ServicesSocialMediaMarketingRoute
   '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/blog/': typeof BlogIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/blog'
-    | '/case-studies'
     | '/contact'
-    | '/services'
     | '/sitemap.xml'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
@@ -196,14 +193,14 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/social-media-marketing'
     | '/services/website-development'
+    | '/blog/'
+    | '/case-studies/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
-    | '/blog'
-    | '/case-studies'
     | '/contact'
-    | '/services'
     | '/sitemap.xml'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
@@ -215,14 +212,14 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/social-media-marketing'
     | '/services/website-development'
+    | '/blog'
+    | '/case-studies'
+    | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/blog'
-    | '/case-studies'
     | '/contact'
-    | '/services'
     | '/sitemap.xml'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
@@ -234,16 +231,19 @@ export interface FileRouteTypes {
     | '/services/seo'
     | '/services/social-media-marketing'
     | '/services/website-development'
+    | '/blog/'
+    | '/case-studies/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  BlogRoute: typeof BlogRouteWithChildren
-  CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
-  ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogIndexRoute: typeof BlogIndexRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -255,32 +255,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/case-studies': {
-      id: '/case-studies'
-      path: '/case-studies'
-      fullPath: '/case-studies'
-      preLoaderRoute: typeof CaseStudiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -295,6 +274,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/website-development': {
@@ -370,64 +370,25 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogAiPoweredSearchChangingSeoRoute: typeof BlogAiPoweredSearchChangingSeoRoute
-  BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute: typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
-  BlogTopSeoTrendsDubai2026Route: typeof BlogTopSeoTrendsDubai2026Route
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogAiPoweredSearchChangingSeoRoute: BlogAiPoweredSearchChangingSeoRoute,
-  BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute:
-    BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute,
-  BlogTopSeoTrendsDubai2026Route: BlogTopSeoTrendsDubai2026Route,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
-interface CaseStudiesRouteChildren {
-  CaseStudiesThePetShopRoute: typeof CaseStudiesThePetShopRoute
-  CaseStudiesZetronixRoute: typeof CaseStudiesZetronixRoute
-}
-
-const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
-  CaseStudiesThePetShopRoute: CaseStudiesThePetShopRoute,
-  CaseStudiesZetronixRoute: CaseStudiesZetronixRoute,
-}
-
-const CaseStudiesRouteWithChildren = CaseStudiesRoute._addFileChildren(
-  CaseStudiesRouteChildren,
-)
-
-interface ServicesRouteChildren {
-  ServicesAppDevelopmentRoute: typeof ServicesAppDevelopmentRoute
-  ServicesPpcAdvertisingRoute: typeof ServicesPpcAdvertisingRoute
-  ServicesSeoRoute: typeof ServicesSeoRoute
-  ServicesSocialMediaMarketingRoute: typeof ServicesSocialMediaMarketingRoute
-  ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
-}
-
-const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesAppDevelopmentRoute: ServicesAppDevelopmentRoute,
-  ServicesPpcAdvertisingRoute: ServicesPpcAdvertisingRoute,
-  ServicesSeoRoute: ServicesSeoRoute,
-  ServicesSocialMediaMarketingRoute: ServicesSocialMediaMarketingRoute,
-  ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
-}
-
-const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
-  ServicesRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  BlogRoute: BlogRouteWithChildren,
-  CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
-  ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogIndexRoute: BlogIndexRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

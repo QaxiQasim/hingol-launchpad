@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero, CTASection } from "@/components/SiteLayout";
 import { ArrowUpRight, Calendar } from "lucide-react";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Digital Marketing & SEO Blog | Hingol Marketing Dubai" },
