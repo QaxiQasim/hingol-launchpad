@@ -139,8 +139,18 @@ function SiteFooter() {
               Europe, and beyond grow with SEO, performance marketing, web & app development.
             </p>
             <div className="flex gap-3">
-              {[Linkedin, Instagram, Facebook].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-[oklch(0.82_0.13_85)] hover:border-[oklch(0.82_0.13_85)] transition-colors">
+              {[
+                { Icon: Linkedin, href: "https://www.linkedin.com/company/hinolmarketing" },
+                { Icon: Instagram, href: "#" },
+                { Icon: Facebook, href: "#" }
+              ].map(({ Icon, href }, i) => (
+                <a 
+                  key={i} 
+                  href={href} 
+                  target={href !== "#" ? "_blank" : undefined} 
+                  rel={href !== "#" ? "noopener noreferrer" : undefined} 
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-[oklch(0.82_0.13_85)] hover:border-[oklch(0.82_0.13_85)] transition-colors"
+                >
                   <Icon className="w-4 h-4" />
                 </a>
               ))}
