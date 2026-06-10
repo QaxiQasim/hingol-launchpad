@@ -144,7 +144,7 @@ function HomePage() {
               and globally turn digital marketing into their most predictable growth channel.
             </p>
             <div className="flex flex-wrap gap-3 mt-7">
-              <Link to="/about" className="btn-primary">About Hingol <ArrowRight className="w-4 h-4" /></Link>
+              <Link to="/about" className="btn-gold">About Hingol <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/contact" className="btn-ghost">Book a Strategy Call</Link>
             </div>
           </div>
