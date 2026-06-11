@@ -141,8 +141,8 @@ function SiteFooter() {
             <div className="flex gap-3">
               {[
                 { Icon: Linkedin, href: "https://www.linkedin.com/company/hinolmarketing" },
-                { Icon: Instagram, href: "#" },
-                { Icon: Facebook, href: "#" }
+                { Icon: Instagram, href: "https://www.instagram.com/hingolmarketing/" },
+                { Icon: Facebook, href: "https://www.facebook.com/Hingolmarketing" }
               ].map(({ Icon, href }, i) => (
                 <a 
                   key={i} 
