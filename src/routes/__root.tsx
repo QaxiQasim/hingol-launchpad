@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           telephone: "+971543379384",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "1501 The Tower Plaza, Sheikh Zayed Road",
+            streetAddress: "1302 The Tower Plaza, Sheikh Zayed Road",
             addressLocality: "Dubai",
             addressCountry: "AE",
           },

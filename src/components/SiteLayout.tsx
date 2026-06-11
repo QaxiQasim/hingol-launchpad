@@ -196,7 +196,7 @@ function SiteFooter() {
           <div className="lg:col-span-3">
             <div className="text-sm font-semibold mb-4">Contact</div>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-[oklch(0.82_0.13_85)] flex-shrink-0" /> 1501 The Tower Plaza, Sheikh Zayed Road, Dubai, UAE</li>
+              <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-[oklch(0.82_0.13_85)] flex-shrink-0" /> 1302 The Tower Plaza, Sheikh Zayed Road, Dubai, UAE</li>
               <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> <a href="tel:+971543379384" className="hover:text-foreground">+971 54 337 9384</a></li>
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> <a href="mailto:Info@hingolmarketing.com" className="hover:text-foreground">Info@hingolmarketing.com</a></li>
             </ul>
