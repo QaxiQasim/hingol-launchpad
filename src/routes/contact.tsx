@@ -149,7 +149,7 @@ function ContactPage() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
-            <Info icon={<Phone />} title="Phone" lines={["+971 54 337 9384"]} href="tel:+971543379384" />
+            <Info icon={<Phone />} title="Phone" lines={["+971 58 563 0337"]} href="tel:+971585630337" />
             <Info icon={<Mail />} title="Email" lines={["Info@hingolmarketing.com"]} href="mailto:Info@hingolmarketing.com" />
             <Info icon={<MapPin />} title="Office" lines={["1302 The Tower Plaza", "Sheikh Zayed Road", "Dubai, UAE"]} />
             <Info icon={<Clock />} title="Business Hours" lines={["Mon – Fri: 9:00 – 18:00 GST", "Sat: By appointment", "Sun: Closed"]} />
@@ -194,7 +194,7 @@ function ContactPage() {
             your business — even if you don't end up working with us.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <a href="tel:+971543379384" className="btn-gold">Call +971 54 337 9384</a>
+            <a href="tel:+971585630337" className="btn-gold">Call +971 58 563 0337</a>
             <a href="mailto:Info@hingolmarketing.com" className="btn-ghost">Email Us</a>
           </div>
         </div>

@@ -10,10 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SitemapRouteImport } from './routes/sitemap'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -25,14 +27,26 @@ import { Route as ServicesSeoRouteImport } from './routes/services.seo'
 import { Route as ServicesPpcAdvertisingRouteImport } from './routes/services.ppc-advertising'
 import { Route as ServicesAppDevelopmentRouteImport } from './routes/services.app-development'
 import { Route as CaseStudiesZetronixRouteImport } from './routes/case-studies.zetronix'
+import { Route as CaseStudiesVaultifyFintechRouteImport } from './routes/case-studies.vaultify-fintech'
 import { Route as CaseStudiesThePetShopRouteImport } from './routes/case-studies.the-pet-shop'
+import { Route as CaseStudiesSaffronKitchenRouteImport } from './routes/case-studies.saffron-kitchen'
+import { Route as CaseStudiesPinnaclePropertiesRouteImport } from './routes/case-studies.pinnacle-properties'
+import { Route as CaseStudiesNovanestRouteImport } from './routes/case-studies.novanest'
+import { Route as CaseStudiesMedlifeClinicsRouteImport } from './routes/case-studies.medlife-clinics'
+import { Route as CaseStudiesLumiereHotelGroupRouteImport } from './routes/case-studies.lumiere-hotel-group'
 import { Route as BlogTopSeoTrendsDubai2026RouteImport } from './routes/blog.top-seo-trends-dubai-2026'
 import { Route as BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRouteImport } from './routes/blog.dubai-business-needs-website-development-seo'
 import { Route as BlogAiPoweredSearchChangingSeoRouteImport } from './routes/blog.ai-powered-search-changing-seo'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapRoute = SitemapRouteImport.update({
+  id: '/sitemap',
+  path: '/sitemap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesRoute = ServicesRouteImport.update({
@@ -53,6 +67,11 @@ const CaseStudiesRoute = CaseStudiesRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -112,11 +131,46 @@ const CaseStudiesZetronixRoute = CaseStudiesZetronixRouteImport.update({
   path: '/zetronix',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const CaseStudiesVaultifyFintechRoute =
+  CaseStudiesVaultifyFintechRouteImport.update({
+    id: '/vaultify-fintech',
+    path: '/vaultify-fintech',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
 const CaseStudiesThePetShopRoute = CaseStudiesThePetShopRouteImport.update({
   id: '/the-pet-shop',
   path: '/the-pet-shop',
   getParentRoute: () => CaseStudiesRoute,
 } as any)
+const CaseStudiesSaffronKitchenRoute =
+  CaseStudiesSaffronKitchenRouteImport.update({
+    id: '/saffron-kitchen',
+    path: '/saffron-kitchen',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
+const CaseStudiesPinnaclePropertiesRoute =
+  CaseStudiesPinnaclePropertiesRouteImport.update({
+    id: '/pinnacle-properties',
+    path: '/pinnacle-properties',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
+const CaseStudiesNovanestRoute = CaseStudiesNovanestRouteImport.update({
+  id: '/novanest',
+  path: '/novanest',
+  getParentRoute: () => CaseStudiesRoute,
+} as any)
+const CaseStudiesMedlifeClinicsRoute =
+  CaseStudiesMedlifeClinicsRouteImport.update({
+    id: '/medlife-clinics',
+    path: '/medlife-clinics',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
+const CaseStudiesLumiereHotelGroupRoute =
+  CaseStudiesLumiereHotelGroupRouteImport.update({
+    id: '/lumiere-hotel-group',
+    path: '/lumiere-hotel-group',
+    getParentRoute: () => CaseStudiesRoute,
+  } as any)
 const BlogTopSeoTrendsDubai2026Route =
   BlogTopSeoTrendsDubai2026RouteImport.update({
     id: '/top-seo-trends-dubai-2026',
@@ -135,19 +189,33 @@ const BlogAiPoweredSearchChangingSeoRoute =
     path: '/ai-powered-search-changing-seo',
     getParentRoute: () => BlogRoute,
   } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/blog': typeof BlogRouteWithChildren
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
   '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/lumiere-hotel-group': typeof CaseStudiesLumiereHotelGroupRoute
+  '/case-studies/medlife-clinics': typeof CaseStudiesMedlifeClinicsRoute
+  '/case-studies/novanest': typeof CaseStudiesNovanestRoute
+  '/case-studies/pinnacle-properties': typeof CaseStudiesPinnaclePropertiesRoute
+  '/case-studies/saffron-kitchen': typeof CaseStudiesSaffronKitchenRoute
   '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/vaultify-fintech': typeof CaseStudiesVaultifyFintechRoute
   '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
   '/services/app-development': typeof ServicesAppDevelopmentRoute
   '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
@@ -161,12 +229,21 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/contact': typeof ContactRoute
+  '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
   '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/lumiere-hotel-group': typeof CaseStudiesLumiereHotelGroupRoute
+  '/case-studies/medlife-clinics': typeof CaseStudiesMedlifeClinicsRoute
+  '/case-studies/novanest': typeof CaseStudiesNovanestRoute
+  '/case-studies/pinnacle-properties': typeof CaseStudiesPinnaclePropertiesRoute
+  '/case-studies/saffron-kitchen': typeof CaseStudiesSaffronKitchenRoute
   '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/vaultify-fintech': typeof CaseStudiesVaultifyFintechRoute
   '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
   '/services/app-development': typeof ServicesAppDevelopmentRoute
   '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
@@ -181,15 +258,24 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
   '/blog': typeof BlogRouteWithChildren
   '/case-studies': typeof CaseStudiesRouteWithChildren
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRouteWithChildren
+  '/sitemap': typeof SitemapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/blog/ai-powered-search-changing-seo': typeof BlogAiPoweredSearchChangingSeoRoute
   '/blog/dubai-business-needs-website-development-seo': typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
   '/blog/top-seo-trends-dubai-2026': typeof BlogTopSeoTrendsDubai2026Route
+  '/case-studies/lumiere-hotel-group': typeof CaseStudiesLumiereHotelGroupRoute
+  '/case-studies/medlife-clinics': typeof CaseStudiesMedlifeClinicsRoute
+  '/case-studies/novanest': typeof CaseStudiesNovanestRoute
+  '/case-studies/pinnacle-properties': typeof CaseStudiesPinnaclePropertiesRoute
+  '/case-studies/saffron-kitchen': typeof CaseStudiesSaffronKitchenRoute
   '/case-studies/the-pet-shop': typeof CaseStudiesThePetShopRoute
+  '/case-studies/vaultify-fintech': typeof CaseStudiesVaultifyFintechRoute
   '/case-studies/zetronix': typeof CaseStudiesZetronixRoute
   '/services/app-development': typeof ServicesAppDevelopmentRoute
   '/services/ppc-advertising': typeof ServicesPpcAdvertisingRoute
@@ -205,15 +291,24 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/admin'
     | '/blog'
     | '/case-studies'
     | '/contact'
     | '/services'
+    | '/sitemap'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
     | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/lumiere-hotel-group'
+    | '/case-studies/medlife-clinics'
+    | '/case-studies/novanest'
+    | '/case-studies/pinnacle-properties'
+    | '/case-studies/saffron-kitchen'
     | '/case-studies/the-pet-shop'
+    | '/case-studies/vaultify-fintech'
     | '/case-studies/zetronix'
     | '/services/app-development'
     | '/services/ppc-advertising'
@@ -227,12 +322,21 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/admin'
     | '/contact'
+    | '/sitemap'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
     | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/lumiere-hotel-group'
+    | '/case-studies/medlife-clinics'
+    | '/case-studies/novanest'
+    | '/case-studies/pinnacle-properties'
+    | '/case-studies/saffron-kitchen'
     | '/case-studies/the-pet-shop'
+    | '/case-studies/vaultify-fintech'
     | '/case-studies/zetronix'
     | '/services/app-development'
     | '/services/ppc-advertising'
@@ -246,15 +350,24 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/admin'
     | '/blog'
     | '/case-studies'
     | '/contact'
     | '/services'
+    | '/sitemap'
     | '/sitemap.xml'
+    | '/blog/$slug'
     | '/blog/ai-powered-search-changing-seo'
     | '/blog/dubai-business-needs-website-development-seo'
     | '/blog/top-seo-trends-dubai-2026'
+    | '/case-studies/lumiere-hotel-group'
+    | '/case-studies/medlife-clinics'
+    | '/case-studies/novanest'
+    | '/case-studies/pinnacle-properties'
+    | '/case-studies/saffron-kitchen'
     | '/case-studies/the-pet-shop'
+    | '/case-studies/vaultify-fintech'
     | '/case-studies/zetronix'
     | '/services/app-development'
     | '/services/ppc-advertising'
@@ -269,10 +382,12 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
   BlogRoute: typeof BlogRouteWithChildren
   CaseStudiesRoute: typeof CaseStudiesRouteWithChildren
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRouteWithChildren
+  SitemapRoute: typeof SitemapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -283,6 +398,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap': {
+      id: '/sitemap'
+      path: '/sitemap'
+      fullPath: '/sitemap'
+      preLoaderRoute: typeof SitemapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services': {
@@ -311,6 +433,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -390,11 +519,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesZetronixRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
+    '/case-studies/vaultify-fintech': {
+      id: '/case-studies/vaultify-fintech'
+      path: '/vaultify-fintech'
+      fullPath: '/case-studies/vaultify-fintech'
+      preLoaderRoute: typeof CaseStudiesVaultifyFintechRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
     '/case-studies/the-pet-shop': {
       id: '/case-studies/the-pet-shop'
       path: '/the-pet-shop'
       fullPath: '/case-studies/the-pet-shop'
       preLoaderRoute: typeof CaseStudiesThePetShopRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/saffron-kitchen': {
+      id: '/case-studies/saffron-kitchen'
+      path: '/saffron-kitchen'
+      fullPath: '/case-studies/saffron-kitchen'
+      preLoaderRoute: typeof CaseStudiesSaffronKitchenRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/pinnacle-properties': {
+      id: '/case-studies/pinnacle-properties'
+      path: '/pinnacle-properties'
+      fullPath: '/case-studies/pinnacle-properties'
+      preLoaderRoute: typeof CaseStudiesPinnaclePropertiesRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/novanest': {
+      id: '/case-studies/novanest'
+      path: '/novanest'
+      fullPath: '/case-studies/novanest'
+      preLoaderRoute: typeof CaseStudiesNovanestRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/medlife-clinics': {
+      id: '/case-studies/medlife-clinics'
+      path: '/medlife-clinics'
+      fullPath: '/case-studies/medlife-clinics'
+      preLoaderRoute: typeof CaseStudiesMedlifeClinicsRouteImport
+      parentRoute: typeof CaseStudiesRoute
+    }
+    '/case-studies/lumiere-hotel-group': {
+      id: '/case-studies/lumiere-hotel-group'
+      path: '/lumiere-hotel-group'
+      fullPath: '/case-studies/lumiere-hotel-group'
+      preLoaderRoute: typeof CaseStudiesLumiereHotelGroupRouteImport
       parentRoute: typeof CaseStudiesRoute
     }
     '/blog/top-seo-trends-dubai-2026': {
@@ -418,10 +589,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogAiPoweredSearchChangingSeoRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
 interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
   BlogAiPoweredSearchChangingSeoRoute: typeof BlogAiPoweredSearchChangingSeoRoute
   BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute: typeof BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute
   BlogTopSeoTrendsDubai2026Route: typeof BlogTopSeoTrendsDubai2026Route
@@ -429,6 +608,7 @@ interface BlogRouteChildren {
 }
 
 const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
   BlogAiPoweredSearchChangingSeoRoute: BlogAiPoweredSearchChangingSeoRoute,
   BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute:
     BlogDubaiBusinessNeedsWebsiteDevelopmentSeoRoute,
@@ -439,13 +619,25 @@ const BlogRouteChildren: BlogRouteChildren = {
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface CaseStudiesRouteChildren {
+  CaseStudiesLumiereHotelGroupRoute: typeof CaseStudiesLumiereHotelGroupRoute
+  CaseStudiesMedlifeClinicsRoute: typeof CaseStudiesMedlifeClinicsRoute
+  CaseStudiesNovanestRoute: typeof CaseStudiesNovanestRoute
+  CaseStudiesPinnaclePropertiesRoute: typeof CaseStudiesPinnaclePropertiesRoute
+  CaseStudiesSaffronKitchenRoute: typeof CaseStudiesSaffronKitchenRoute
   CaseStudiesThePetShopRoute: typeof CaseStudiesThePetShopRoute
+  CaseStudiesVaultifyFintechRoute: typeof CaseStudiesVaultifyFintechRoute
   CaseStudiesZetronixRoute: typeof CaseStudiesZetronixRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
 const CaseStudiesRouteChildren: CaseStudiesRouteChildren = {
+  CaseStudiesLumiereHotelGroupRoute: CaseStudiesLumiereHotelGroupRoute,
+  CaseStudiesMedlifeClinicsRoute: CaseStudiesMedlifeClinicsRoute,
+  CaseStudiesNovanestRoute: CaseStudiesNovanestRoute,
+  CaseStudiesPinnaclePropertiesRoute: CaseStudiesPinnaclePropertiesRoute,
+  CaseStudiesSaffronKitchenRoute: CaseStudiesSaffronKitchenRoute,
   CaseStudiesThePetShopRoute: CaseStudiesThePetShopRoute,
+  CaseStudiesVaultifyFintechRoute: CaseStudiesVaultifyFintechRoute,
   CaseStudiesZetronixRoute: CaseStudiesZetronixRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
@@ -479,10 +671,12 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
   BlogRoute: BlogRouteWithChildren,
   CaseStudiesRoute: CaseStudiesRouteWithChildren,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRouteWithChildren,
+  SitemapRoute: SitemapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport

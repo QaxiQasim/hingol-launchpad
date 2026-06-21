@@ -19,6 +19,12 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/services/website-development", changefreq: "monthly", priority: "0.9" },
           { path: "/services/app-development", changefreq: "monthly", priority: "0.9" },
           { path: "/case-studies", changefreq: "monthly", priority: "0.8" },
+          { path: "/case-studies/pinnacle-properties", changefreq: "yearly", priority: "0.7" },
+          { path: "/case-studies/novanest", changefreq: "yearly", priority: "0.7" },
+          { path: "/case-studies/lumiere-hotel-group", changefreq: "yearly", priority: "0.7" },
+          { path: "/case-studies/medlife-clinics", changefreq: "yearly", priority: "0.7" },
+          { path: "/case-studies/vaultify-fintech", changefreq: "yearly", priority: "0.7" },
+          { path: "/case-studies/saffron-kitchen", changefreq: "yearly", priority: "0.7" },
           { path: "/case-studies/the-pet-shop", changefreq: "yearly", priority: "0.7" },
           { path: "/case-studies/zetronix", changefreq: "yearly", priority: "0.7" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
@@ -26,6 +32,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/blog/ai-powered-search-changing-seo", changefreq: "yearly", priority: "0.7" },
           { path: "/blog/dubai-business-needs-website-development-seo", changefreq: "yearly", priority: "0.7" },
           { path: "/contact", changefreq: "monthly", priority: "0.8" },
+          { path: "/sitemap", changefreq: "weekly", priority: "0.5" },
         ];
         const urls = entries.map((e) =>
           `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`

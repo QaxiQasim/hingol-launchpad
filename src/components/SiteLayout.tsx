@@ -64,8 +64,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+971543379384" className="text-sm font-medium text-muted-foreground hover:text-foreground inline-flex items-center gap-2">
-              <Phone className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> +971 54 337 9384
+            <a href="tel:+971585630337" className="text-sm font-medium text-muted-foreground hover:text-foreground inline-flex items-center gap-2">
+              <Phone className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> +971 58 563 0337
             </a>
             <Link to="/contact" className="btn-gold text-sm">
               Free Consultation <ArrowRight className="w-4 h-4" />
@@ -181,6 +181,7 @@ function SiteFooter() {
               <li><Link to="/case-studies" className="hover:text-foreground">Case Studies</Link></li>
               <li><Link to="/blog" className="hover:text-foreground">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+              <li><Link to="/sitemap" className="hover:text-foreground">Sitemap</Link></li>
             </ul>
           </div>
 
@@ -197,14 +198,20 @@ function SiteFooter() {
             <div className="text-sm font-semibold mb-4">Contact</div>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-[oklch(0.82_0.13_85)] flex-shrink-0" /> 1302 The Tower Plaza, Sheikh Zayed Road, Dubai, UAE</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> <a href="tel:+971543379384" className="hover:text-foreground">+971 54 337 9384</a></li>
+              <li className="flex items-start gap-2">
+                <Phone className="w-4 h-4 mt-0.5 text-[oklch(0.82_0.13_85)] flex-shrink-0" />
+                <div className="flex flex-col gap-1.5">
+                  <a href="tel:+971585630337" className="hover:text-foreground transition-colors">+971 58 563 0337</a>
+                  <a href="tel:+971543379384" className="hover:text-foreground transition-colors">+971 54 337 9384</a>
+                </div>
+              </li>
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[oklch(0.82_0.13_85)]" /> <a href="mailto:Info@hingolmarketing.com" className="hover:text-foreground">Info@hingolmarketing.com</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} Hingol Marketing. All rights reserved.</div>
+          <div>© {new Date().getFullYear()} Hingol Marketing. All rights reserved. · <Link to="/sitemap" className="hover:underline hover:text-foreground">Sitemap</Link></div>
           <div>Digital Marketing Agency in Dubai · UAE · GCC</div>
         </div>
       </div>

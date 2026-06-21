@@ -18,6 +18,66 @@ export const Route = createFileRoute("/case-studies/")({
 
 const studies = [
   {
+    slug: "pinnacle-properties",
+    name: "Pinnacle Properties",
+    location: "Dubai, UAE",
+    duration: "2024 – PRESENT",
+    service: "SEO",
+    headline: "80% increase in organic traffic, 45+ keywords on Page 1",
+    summary: "Comprehensive SEO strategy for a luxury real estate agency, capturing organic demand from high-net-worth investors.",
+    metrics: ["80% increase in organic traffic", "45+ keywords on Page 1", "60% increase in qualified leads"],
+  },
+  {
+    slug: "novanest",
+    name: "NovaNest Home & Living",
+    location: "UAE",
+    duration: "2024 – PRESENT",
+    service: "Web Dev & SEO",
+    headline: "3X Organic Revenue, 2.5s Improved Load Time",
+    summary: "Technical SEO and web development overhaul for a premium home decor brand, achieving significant organic growth.",
+    metrics: ["3X Organic Revenue", "2.5s Improved Load Time", "+150% Non-Brand Search Traffic"],
+  },
+  {
+    slug: "lumiere-hotel-group",
+    name: "Lumiere Hotel Group",
+    location: "Dubai, UAE",
+    duration: "2023 – 2024",
+    service: "SEO & Social",
+    headline: "60% Increase in Direct Bookings, -40% Dependency on OTAs",
+    summary: "Dual-pronged strategy combining Local SEO with high-impact Social Media Marketing to capture travelers directly.",
+    metrics: ["60% Increase in Direct Bookings", "-40% Dependency on OTAs", "3.5M Social Media Impressions"],
+  },
+  {
+    slug: "medlife-clinics",
+    name: "MedLife Clinics",
+    location: "Dubai, UAE",
+    duration: "2024 – PRESENT",
+    service: "SEO & PPC",
+    headline: "120% Increase in Bookings, -35% Cost Per Acquisition",
+    summary: "Highly targeted, compliant digital marketing strategy tailored for the healthcare industry, boosting verified bookings.",
+    metrics: ["120% Increase in Bookings", "-35% Cost Per Acquisition", "Top 3 Ranking for 20+ Treatments"],
+  },
+  {
+    slug: "vaultify-fintech",
+    name: "Vaultify Fintech",
+    location: "DIFC, Dubai",
+    duration: "2025 – 2026",
+    service: "PPC & Paid Media",
+    headline: "4.2X Return on Ad Spend, -38% Cost Per Lead",
+    summary: "Precision Google and LinkedIn Advertising pivoting from broad awareness to highly targeted, intent-based acquisition.",
+    metrics: ["4.2X Return on Ad Spend", "-38% Cost Per Lead", "+2,500 New Active Users"],
+  },
+  {
+    slug: "saffron-kitchen",
+    name: "Saffron Kitchen",
+    location: "Dubai, UAE",
+    duration: "2025 – PRESENT",
+    service: "Social Media",
+    headline: "3X Increase in Table Reservations, 200% Instagram Follower Growth",
+    summary: "Reimagined social presence shifting the focus to video-first content creation and conversion-driven paid social.",
+    metrics: ["3X Increase in Table Reservations", "200% Instagram Follower Growth", "1.8M Monthly Video Views"],
+  },
+  {
     slug: "the-pet-shop",
     name: "The Pet Shop",
     location: "Dubai, UAE",
@@ -52,7 +112,7 @@ function CaseStudiesPage() {
       <section className="section-y">
         <div className="container-px mx-auto max-w-7xl grid md:grid-cols-2 gap-6">
           {studies.map((s) => (
-            <Link key={s.slug} to={`/case-studies/${s.slug}` as "/case-studies/the-pet-shop"} className="card-surface card-hover p-8 group">
+            <Link key={s.slug} to={`/case-studies/${s.slug}` as any} className="card-surface card-hover p-8 group">
               <div className="flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
                 <span className="inline-flex items-center gap-1"><Layers className="w-3.5 h-3.5" /> {s.service}</span>
                 <span className="inline-flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {s.location}</span>

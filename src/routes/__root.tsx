@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { supabase } from "../lib/supabase";
 
 function NotFoundComponent() {
   return (
@@ -88,6 +89,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -102,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Hingol Marketing",
           url: "/",
           email: "Info@hingolmarketing.com",
-          telephone: "+971543379384",
+          telephone: "+971585630337",
           address: {
             "@type": "PostalAddress",
             streetAddress: "1302 The Tower Plaza, Sheikh Zayed Road",
@@ -124,6 +127,7 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="mhNsGpS7T9446WunScAH2KUaAQXfBcMnNdopMOrbys4" />
         <HeadContent />
       </head>
       <body>
@@ -136,6 +140,47 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    async function loadGA() {
+      try {
+        const { data, error } = await supabase
+          .from("admin_settings")
+          .select("setting_value")
+          .eq("setting_key", "ga_measurement_id")
+          .maybeSingle();
+        
+        if (error) return;
+        
+        const measurementId = data?.setting_value;
+        if (measurementId && typeof window !== "undefined") {
+          // Check if already injected
+          if (document.getElementById("google-analytics-gtag")) return;
+
+          // Inject script 1: script element with src
+          const script1 = document.createElement("script");
+          script1.id = "google-analytics-gtag";
+          script1.async = true;
+          script1.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+          document.head.appendChild(script1);
+
+          // Inject script 2: inline config code
+          const script2 = document.createElement("script");
+          script2.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${measurementId}');
+          `;
+          document.head.appendChild(script2);
+          console.log("Dynamically loaded Google Analytics with ID:", measurementId);
+        }
+      } catch (e) {
+        console.warn("GA script load failed:", e);
+      }
+    }
+    loadGA();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
